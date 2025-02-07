@@ -1,23 +1,12 @@
-declare module 'next-pwa' {
-  import { NextConfig } from 'next';
+import  withPWA   from "next-pwa";
 
-  export interface PWAConfig {
-    dest: string;
-    register?: boolean;
-    skipWaiting?: boolean;
-    disable?: boolean;
-    buildExcludes?: string[];
-    fallbacks?: {
-      document?: string;
-      image?: string;
-      font?: string;
-      audio?: string;
-      video?: string;
-    };
-  }
+const nextConfig  = withPWA({
+  dest: "public",
+  disable: process.env.NODE_ENV == "development",
+  register: true,
+  skipWaiting: true,
 
-  type WithPWA = (config: NextConfig & { pwa?: PWAConfig }) => NextConfig;
+  
+})
 
-  const withPWA: WithPWA;
-  export default withPWA;
-}
+export default nextConfig;
