@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Geist as GeistSans, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import "./globals.css";
-
-const geistSans = GeistSans({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Muhammed Shibil M",
   description: "A Progressive Web App showcasing the portfolio and projects of Muhammed Shibil M",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -34,7 +24,7 @@ export default function RootLayout({
       </Head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-4xl`}
+        className={` text-4xl`}
       >
         {children}
       </body>
